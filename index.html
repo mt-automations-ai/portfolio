@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Workflows & AI Engineering</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">MT<span>.</span></div>
+        <div class="nav-links">
+            <a href="#projects">Work</a>
+            <a href="#contact" class="btn-nav">Get in Touch</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-container">
+            <div class="badge">Next-Gen Automation</div>
+            <h1>Scaling Businesses With <span class="text-serif">AI Agents</span> & Advanced Workflows</h1>
+            <p>I design and build production-ready automation pipelines using n8n, vector databases, and custom RAG architectures to eliminate manual friction.</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn-primary">View Solutions</a>
+                <a href="#contact" class="btn-secondary">Let's Talk</a>
+            </div>
+        </div>
+    </header>
+    
+    <section id="projects" class="projects-section">
+        <div class="section-header">
+            <span class="section-subtitle">Selected Solutions</span>
+            <h2>Production-Ready AI Pipelines</h2>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-tags">
+                    <span>n8n</span>
+                    <span>Pinecone</span>
+                    <span>OpenAI</span>
+                </div>
+                <h3>Enterprise RAG Knowledge Agent</h3>
+                <p>An advanced AI agent architecture that processes corporate documentation, generates vector embeddings, and delivers context-aware responses with strict guardrails.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-tags">
+                    <span>n8n</span>
+                    <span>Supabase</span>
+                    <span>JavaScript</span>
+                </div>
+                <h3>Automated Lead Scoring Pipeline</h3>
+                <p>A smart workflow that intercepts incoming webhooks, enriches lead data using AI insights, and dynamically routes high-value opportunities to the CRM.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2>Let's build something autonomous.</h2>
+            <p class="contact-subtitle">Looking to integrate AI agents, optimize pipelines, or build custom RAG architectures? Drop me a message.</p>
+            
+            <form id="contact-form" class="web-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" placeholder="What do you want to automate?" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+
+            <div class="contact-direct">
+                <span>Or write directly to:</span>
+                <a href="mailto:mt.automation.ai@gmail.com" class="btn-email">mt.automation.ai@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 MT. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const btn = e.target.querySelector('.btn-submit');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.style.opacity = '0.7';
+
+            // Recogemos los datos con estructura limpia
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                date: new Date().toISOString()
+            };
+
+            const webhookUrl = 'https://siesta-pogo-fame.ngrok-free.dev/webhook/6b360522-d4e8-4355-9b3e-0cf5df3a27cb';
+
+            try {
+                // Forzamos modo 'no-cors' para saltar el bloqueo de Docker local
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Al usar 'no-cors' la respuesta es opaca, si llega aquí es que se envió
+                alert('¡Mensaje enviado con éxito! Revisa tu n8n.');
+                document.getElementById('contact-form').reset();
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Hubo un error de red.');
+            } finally {
+                btn.textContent = originalText;
+                btn.style.opacity = '1';
+            }
+        });
+    </script>
+</body>
+</html>

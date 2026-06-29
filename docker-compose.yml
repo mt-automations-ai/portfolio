@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n_local
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_CORS_ALLOWED_ORIGINS=*
+      - WEBHOOK_URL=${NGROK_TUNNEL_URL} # Le dice a n8n cuál es su URL pública
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: ngrok_tunnel
+    command:
+      - "http"
+      - "n8n_local:5678" # Apunta directamente al servicio n8n dentro de Docker
+    environment:
+      - NGROK_AUTHTOKEN=3Cleevf0rEhJouvxC26l0AI7vff_2ekQiEKay9t6EvK4nmdC4
+    ports:
+      - "4040:4040" # Interfaz de Ngrok para ver el estado del túnel
+    depends_on:
+      - n8n
+
+volumes:
+  n8n_data:
