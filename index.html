@@ -20,7 +20,7 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-container">
+        <div class="hero-container fade-in-up">
             <div class="badge">Next-Gen Automation</div>
             <h1>Scaling Businesses With <span class="text-serif">AI Agents</span> & Advanced Workflows</h1>
             <p>I design and build production-ready automation pipelines using n8n, vector databases, and custom RAG architectures to eliminate manual friction.</p>
@@ -32,13 +32,13 @@
     </header>
     
     <section id="projects" class="projects-section">
-        <div class="section-header">
+        <div class="section-header fade-in-up">
             <span class="section-subtitle">Selected Solutions</span>
             <h2>Production-Ready AI Pipelines</h2>
         </div>
 
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card fade-in-up">
                 <div class="project-tags">
                     <span>n8n</span>
                     <span>Pinecone</span>
@@ -48,7 +48,7 @@
                 <p>An advanced AI agent architecture that processes corporate documentation, generates vector embeddings, and delivers context-aware responses with strict guardrails.</p>
             </div>
 
-            <div class="project-card">
+            <div class="project-card fade-in-up">
                 <div class="project-tags">
                     <span>n8n</span>
                     <span>Supabase</span>
@@ -57,22 +57,36 @@
                 <h3>Automated Lead Scoring Pipeline</h3>
                 <p>A smart workflow that intercepts incoming webhooks, enriches lead data using AI insights, and dynamically routes high-value opportunities to the CRM.</p>
             </div>
+
+            <!-- NUEVA TARJETA DE SOPORTE AUTOMÁTICO -->
+            <div class="project-card fade-in-up">
+                <div class="project-tags">
+                    <span>n8n</span>
+                    <span>OpenAI</span>
+                    <span>APIs</span>
+                </div>
+                <h3>Autonomous Customer Support Agent</h3>
+                <p>A conversational AI agent connected to corporate channels like WhatsApp or web chat. It resolves user queries instantly using custom RAG architectures and triggers automated backend actions like scheduling or CRM updates.</p>
+            </div>
         </div>
     </section>
 
     <section id="contact" class="contact-section">
-        <div class="contact-container">
+        <div class="contact-container fade-in-up">
             <h2>Let's build something autonomous.</h2>
             <p class="contact-subtitle">Looking to integrate AI agents, optimize pipelines, or build custom RAG architectures? Drop me a message.</p>
             
             <form id="contact-form" class="web-form">
                 <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="E.g. Bruce Wayne" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="name@company.com" required>
                 </div>
                 <div class="form-group">
+                    <label for="message">Project Details</label>
                     <textarea id="message" name="message" rows="5" placeholder="What do you want to automate?" required></textarea>
                 </div>
                 <button type="submit" class="btn-submit">Send Message</button>
@@ -98,7 +112,6 @@
             btn.textContent = 'Sending...';
             btn.style.opacity = '0.7';
 
-            // Recogemos los datos con estructura limpia
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
@@ -109,7 +122,6 @@
             const webhookUrl = 'https://siesta-pogo-fame.ngrok-free.dev/webhook/6b360522-d4e8-4355-9b3e-0cf5df3a27cb';
 
             try {
-                // Forzamos modo 'no-cors' para saltar el bloqueo de Docker local
                 await fetch(webhookUrl, {
                     method: 'POST',
                     mode: 'no-cors', 
@@ -119,7 +131,6 @@
                     body: JSON.stringify(formData)
                 });
 
-                // Al usar 'no-cors' la respuesta es opaca, si llega aquí es que se envió
                 alert('¡Mensaje enviado con éxito! Revisa tu n8n.');
                 document.getElementById('contact-form').reset();
 
