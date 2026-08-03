@@ -422,3 +422,22 @@ body {
     color: var(--text-muted);
     opacity: 0.6;
 }
+
+.btn-lang {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-lang:hover {
+    color: var(--text-main);
+    border-color: var(--text-main);
+    background: rgba(244, 241, 234, 0.05);
+}
