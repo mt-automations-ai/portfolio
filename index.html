@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autonomous Workflows & AI Engineering</title>
+    <title>MT Automation | AI Engineering & Workflows</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,27 +14,29 @@
     <nav class="navbar">
         <div class="logo">MT<span>.</span></div>
         <div class="nav-links">
-            <a href="#projects">Work</a>
-            <a href="#contact" class="btn-nav">Get in Touch</a>
+            <a href="#projects" data-i18n="nav-work">Soluciones</a>
+            <a href="#contact" class="btn-nav" data-i18n="nav-contact">Contactar</a>
+            <!-- Botón de cambio de idioma -->
+            <button id="lang-toggle" class="btn-lang">EN</button>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-container fade-in-up">
-            <div class="badge">Next-Gen Automation</div>
-            <h1>Scaling Businesses With <span class="text-serif">AI Agents</span> & Advanced Workflows</h1>
-            <p>I design and build production-ready automation pipelines using n8n, vector databases, and custom RAG architectures to eliminate manual friction.</p>
+            <div class="badge" data-i18n="hero-badge">Automatización de Nueva Generación</div>
+            <h1 data-i18n="hero-title">Escala tu Empresa con <span class="text-serif">Agentes de IA</span> y Flujos Avanzados</h1>
+            <p data-i18n="hero-desc">Diseño y construyo sistemas de IA listos para producción usando n8n, bases de datos vectoriales y arquitecturas RAG para eliminar tareas manuales y captar más clientes.</p>
             <div class="hero-cta">
-                <a href="#projects" class="btn-primary">View Solutions</a>
-                <a href="#contact" class="btn-secondary">Let's Talk</a>
+                <a href="#projects" class="btn-primary" data-i18n="hero-btn1">Ver Soluciones</a>
+                <a href="#contact" class="btn-secondary" data-i18n="hero-btn2">Hablemos</a>
             </div>
         </div>
     </header>
     
     <section id="projects" class="projects-section">
         <div class="section-header fade-in-up">
-            <span class="section-subtitle">Selected Solutions</span>
-            <h2>Production-Ready AI Pipelines</h2>
+            <span class="section-subtitle" data-i18n="sec-subtitle">Soluciones Destacadas</span>
+            <h2 data-i18n="sec-title">Sistemas de IA Listos para Producción</h2>
         </div>
 
         <div class="projects-grid">
@@ -44,8 +46,8 @@
                     <span>Pinecone</span>
                     <span>OpenAI</span>
                 </div>
-                <h3>Enterprise RAG Knowledge Agent</h3>
-                <p>An advanced AI agent architecture that processes corporate documentation, generates vector embeddings, and delivers context-aware responses with strict guardrails.</p>
+                <h3 data-i18n="p1-title">Agente de Conocimiento RAG Enterprise</h3>
+                <p data-i18n="p1-desc">Arquitectura avanzada de IA que procesa documentación corporativa interna, genera embeddings vectoriales y responde consultas complejas 24/7 sin invenciones.</p>
             </div>
 
             <div class="project-card fade-in-up">
@@ -54,62 +56,144 @@
                     <span>Supabase</span>
                     <span>JavaScript</span>
                 </div>
-                <h3>Automated Lead Scoring Pipeline</h3>
-                <p>A smart workflow that intercepts incoming webhooks, enriches lead data using AI insights, and dynamically routes high-value opportunities to the CRM.</p>
+                <h3 data-i18n="p2-title">Pipeline de Cualificación de Leads</h3>
+                <p data-i18n="p2-desc">Flujo inteligente que intercepta clientes potenciales, los evalúa mediante IA en tiempo real y asigna las oportunidades de alto valor directamente al CRM.</p>
             </div>
 
-            <!-- NUEVA TARJETA DE SOPORTE AUTOMÁTICO -->
             <div class="project-card fade-in-up">
                 <div class="project-tags">
                     <span>n8n</span>
                     <span>OpenAI</span>
                     <span>APIs</span>
                 </div>
-                <h3>Autonomous Customer Support Agent</h3>
-                <p>A conversational AI agent connected to corporate channels like WhatsApp or web chat. It resolves user queries instantly using custom RAG architectures and triggers automated backend actions like scheduling or CRM updates.</p>
+                <h3 data-i18n="p3-title">Agente Autónomo de Atención al Cliente</h3>
+                <p data-i18n="p3-desc">Asistente conversacional conectado a canales como WhatsApp o Telegram. Resuelve dudas al instante, consulta bases de datos y agenda citas o actualiza el CRM automáticamente.</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact-section">
         <div class="contact-container fade-in-up">
-            <h2>Let's build something autonomous.</h2>
-            <p class="contact-subtitle">Looking to integrate AI agents, optimize pipelines, or build custom RAG architectures? Drop me a message.</p>
+            <h2 data-i18n="contact-title">Hagamos tu empresa más autónoma.</h2>
+            <p class="contact-subtitle" data-i18n="contact-subtitle">¿Buscas integrar agentes de IA, optimizar tus procesos o implementar una base de conocimiento privada? Envíame un mensaje.</p>
             
             <form id="contact-form" class="web-form">
                 <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    <label for="name" data-i18n="lbl-name">Tu Nombre</label>
+                    <input type="text" id="name" name="name" placeholder="Tu nombre completo" data-i18n-ph="ph-name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" placeholder="name@company.com" required>
+                    <label for="email" data-i18n="lbl-email">Tu Email</label>
+                    <input type="email" id="email" name="email" placeholder="nombre@empresa.com" data-i18n-ph="ph-email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Project Details</label>
-                    <textarea id="message" name="message" rows="5" placeholder="What do you want to automate?" required></textarea>
+                    <label for="message" data-i18n="lbl-msg">Detalles del Proyecto</label>
+                    <textarea id="message" name="message" rows="5" placeholder="¿Qué proceso te gustaría automatizar?" data-i18n-ph="ph-msg" required></textarea>
                 </div>
-                <button type="submit" class="btn-submit">Send Message</button>
+                <button type="submit" class="btn-submit" data-i18n="btn-submit">Enviar Mensaje</button>
             </form>
 
             <div class="contact-direct">
-                <span>Or write directly to:</span>
+                <span data-i18n="contact-direct">O escribe directamente a:</span>
                 <a href="mailto:mt.automation.ai@gmail.com" class="btn-email">mt.automation.ai@gmail.com</a>
             </div>
         </div>
     </section>
 
     <footer class="main-footer">
-        <p>&copy; 2026 MT. All rights reserved.</p>
+        <p>&copy; 2026 MT Automation. <span data-i18n="footer-rights">Todos los derechos reservados.</span></p>
     </footer>
 
     <script>
+        // --- DICCIONARIO DE TRADUCCIONES ---
+        const translations = {
+            es: {
+                'nav-work': 'Soluciones',
+                'nav-contact': 'Contactar',
+                'hero-badge': 'Automatización de Nueva Generación',
+                'hero-title': 'Escala tu Empresa con <span class="text-serif">Agentes de IA</span> y Flujos Avanzados',
+                'hero-desc': 'Diseño y construyo sistemas de IA listos para producción usando n8n, bases de datos vectoriales y arquitecturas RAG para eliminar tareas manuales y captar más clientes.',
+                'hero-btn1': 'Ver Soluciones',
+                'hero-btn2': 'Hablemos',
+                'sec-subtitle': 'Soluciones Destacadas',
+                'sec-title': 'Sistemas de IA Listos para Producción',
+                'p1-title': 'Agente de Conocimiento RAG Enterprise',
+                'p1-desc': 'Arquitectura avanzada de IA que procesa documentación corporativa interna, genera embeddings vectoriales y responde consultas complejas 24/7 sin invenciones.',
+                'p2-title': 'Pipeline de Cualificación de Leads',
+                'p2-desc': 'Flujo inteligente que intercepta clientes potenciales, los evalúa mediante IA en tiempo real y asigna las oportunidades de alto valor directamente al CRM.',
+                'p3-title': 'Agente Autónomo de Atención al Cliente',
+                'p3-desc': 'Asistente conversacional conectado a canales como WhatsApp o Telegram. Resuelve dudas al instante, consulta bases de datos y agenda citas o actualiza el CRM automáticamente.',
+                'contact-title': 'Hagamos tu empresa más autónoma.',
+                'contact-subtitle': '¿Buscas integrar agentes de IA, optimizar tus procesos o implementar una base de conocimiento privada? Envíame un mensaje.',
+                'lbl-name': 'Tu Nombre',
+                'ph-name': 'Tu nombre completo',
+                'lbl-email': 'Tu Email',
+                'ph-email': 'nombre@empresa.com',
+                'lbl-msg': 'Detalles del Proyecto',
+                'ph-msg': '¿Qué proceso te gustaría automatizar?',
+                'btn-submit': 'Enviar Mensaje',
+                'contact-direct': 'O escribe directamente a:',
+                'footer-rights': 'Todos los derechos reservados.'
+            },
+            en: {
+                'nav-work': 'Work',
+                'nav-contact': 'Get in Touch',
+                'hero-badge': 'Next-Gen Automation',
+                'hero-title': 'Scaling Businesses With <span class="text-serif">AI Agents</span> & Advanced Workflows',
+                'hero-desc': 'I design and build production-ready automation pipelines using n8n, vector databases, and custom RAG architectures to eliminate manual friction.',
+                'hero-btn1': 'View Solutions',
+                'hero-btn2': "Let's Talk",
+                'sec-subtitle': 'Selected Solutions',
+                'sec-title': 'Production-Ready AI Pipelines',
+                'p1-title': 'Enterprise RAG Knowledge Agent',
+                'p1-desc': 'An advanced AI agent architecture that processes corporate documentation, generates vector embeddings, and delivers context-aware responses with strict guardrails.',
+                'p2-title': 'Automated Lead Scoring Pipeline',
+                'p2-desc': 'A smart workflow that intercepts incoming webhooks, enriches lead data using AI insights, and dynamically routes high-value opportunities to the CRM.',
+                'p3-title': 'Autonomous Customer Support Agent',
+                'p3-desc': 'A conversational AI agent connected to corporate channels like WhatsApp or web chat. It resolves user queries instantly using custom RAG architectures and triggers automated backend actions.',
+                'contact-title': "Let's build something autonomous.",
+                'contact-subtitle': 'Looking to integrate AI agents, optimize pipelines, or build custom RAG architectures? Drop me a message.',
+                'lbl-name': 'Your Name',
+                'ph-name': 'Your full name',
+                'lbl-email': 'Your Email',
+                'ph-email': 'name@company.com',
+                'lbl-msg': 'Project Details',
+                'ph-msg': 'What do you want to automate?',
+                'btn-submit': 'Send Message',
+                'contact-direct': 'Or write directly to:',
+                'footer-rights': 'All rights reserved.'
+            }
+        };
+
+        let currentLang = 'es';
+        const langBtn = document.getElementById('lang-toggle');
+
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            langBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+                const key = el.getAttribute('data-i18n-ph');
+                if (translations[currentLang][key]) {
+                    el.setAttribute('placeholder', translations[currentLang][key]);
+                }
+            });
+        });
+
+        // --- MANEJO DEL FORMULARIO ---
         document.getElementById('contact-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const btn = e.target.querySelector('.btn-submit');
             const originalText = btn.textContent;
-            btn.textContent = 'Sending...';
+            btn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...';
             btn.style.opacity = '0.7';
 
             const formData = {
@@ -125,18 +209,16 @@
                 await fetch(webhookUrl, {
                     method: 'POST',
                     mode: 'no-cors', 
-                    headers: {
-                        'Content-Type': 'text/plain'
-                    },
+                    headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify(formData)
                 });
 
-                alert('Message sent! You will be contacted soon.');
+                alert(currentLang === 'es' ? '¡Mensaje enviado! Me pondré en contacto contigo muy pronto.' : 'Message sent! You will be contacted soon.');
                 document.getElementById('contact-form').reset();
 
             } catch (error) {
                 console.error('Error:', error);
-                alert('Hubo un error de red.');
+                alert(currentLang === 'es' ? 'Hubo un error al enviar el mensaje.' : 'There was an error sending the message.');
             } finally {
                 btn.textContent = originalText;
                 btn.style.opacity = '1';
